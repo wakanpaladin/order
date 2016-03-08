@@ -1,0 +1,67 @@
+<!-- TAKE ORDER -->
+<template name='takeOrders'>
+	
+	{{>newOrders}}
+	
+	{{>readyOrders}}
+
+</template>
+
+<template name='newOrders'>
+	接单({{newOrdersCount}})
+	<br><br>
+	<div class='newOrders'>
+		{{#each newOrders}}
+			{{> Order}}
+		{{/each}}
+	</div>
+</template>
+
+<template name='readyOrders'>
+	结算单({{readyOrdersCount}})
+	<br><br>
+	<div class='readyOrders'>
+		{{#each readyOrders}}
+			{{> Order}}
+		{{/each}}
+	</div>
+</template>
+
+
+
+<!-- Take Order History -->
+
+<template name='doneOrders'>
+	<div class='doneOrders'>
+		{{#each doneOrders}}
+			{{> Order}}
+		{{/each}}
+	</div>
+</template>
+
+<template name='Order'>
+	<div class='order'>
+		Order Id: {{_id}} 
+
+		{{#if isReady}}
+			<button class="ready next">结单</button>
+		{{else}}
+			<button class="new next">可以出单</button>
+		{{/if}}
+
+		{{#if isReady}}
+			<button class="ready previous">返回</button>
+		{{/if}}
+
+		{{#each dishes}}
+			{{> DishOrdered}}
+		{{/each}}
+	</div>
+	<br>	
+</template>
+
+<template name='DishOrdered'>
+	<div class='dishOrdered'>
+		{{name}}:{{amount}}
+	</div>	
+</template>

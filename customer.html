@@ -1,0 +1,46 @@
+<head>
+  <title>Ordering</title>
+</head>
+
+
+<!-- ORDER -->
+
+<template name="Dish">
+  <div class='dish'>  	
+  	<img src="{{image}}">
+  	<div class='dishDetail'>
+  		<h4>{{name}}</h4>
+		<div>Price: ¥{{price}}</div>
+		<div>
+			<button class="addRemoveButton add glyphicon glyphicon-plus"></button>
+			<span>{{amount}}</span>
+			<button class="addRemoveButton remove glyphicon glyphicon-minus"></button>
+		</div>
+	<!--	special need
+		<div>
+			<input type="text"/>
+		</div>
+	-->
+	</div>	
+  </div>
+
+</template>
+
+<template name='dishList'>
+	<header>
+		<h1 id="submit">
+			ORDER
+  		</h1>
+	</header>
+	
+	<div class='dishList'>
+		{{#each dishes}}
+			{{> Dish}}
+		{{/each}}
+	</div>
+</template>
+
+
+
+
+
